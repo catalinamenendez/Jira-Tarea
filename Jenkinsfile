@@ -38,11 +38,13 @@ pipeline {
             }
         }
         
-        stage('Deploy automático en Firebase') { 
+      stage('Deploy automático en Firebase') { 
             steps {
                 withCredentials([string(credentialsId: 'FIREBASE_TOKEN', variable: 'TOKEN_FIREBASE')]) {
-                    bat 'npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --only hosting'
+                    bat 'npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --project jira-tarea --only hosting'
                 }
+            }
+        }
             }
         }
     }
