@@ -1,0 +1,88 @@
+/* src/assets/swift-styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffeef2 0%, #fbe3e8 100%);
+  color: #4a3b42;
+}
+
+.swift-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #8c6275;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.card-container {
+  perspective: 1000px;
+}
+
+.swift-card {
+  width: 100%;
+  height: 130px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.swift-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(184, 131, 153, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* CARA OCULTA: Rosa pastel romántico con Logotipo Femenino TS */
+.card-back {
+  background: linear-gradient(135deg, #ffafcc 0%, #ffc8dd 100%);
+}
+
+.ts-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 1px 2px 4px rgba(136, 14, 79, 0.15);
+}
+
+.ts-sub-logo {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-top: -2px;
+}
+
+/* CARA VISIBLE */
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.tv-badge {
+  font-size: 0.55rem;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 2px 6px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
