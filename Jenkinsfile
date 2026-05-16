@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy automático en Firebase') { 
             steps {
                 withCredentials([string(credentialsId: 'FIREBASE_TOKEN', variable: 'TOKEN_FIREBASE')]) {
-                    bat 'npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --project jira-tarea-da76d --site jira-tarea-da76d --only hosting'
+                    bat 'npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --project jira-tarea-da76d --only hosting:jira-tarea-da76d'
                 }
             }
         }
