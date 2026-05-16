@@ -314,18 +314,7 @@ export default {
           this.handleTimeout();
         }
       }, 1000);
-      // Añadir al final de tu función initGame() existente:
-this.timeLeft = this.pairsCount * 9; // 9 segundos asignados por pareja en tablero
-this.gameOver = false;
-this.streak = 0;
-clearInterval(this.timer);
-this.timer = setInterval(() => {
-  if (this.timeLeft > 0) {
-    this.timeLeft--;
-  } else {
-    this.handleTimeout();
-  }
-}, 1000);
+      
     },
     handleTimeout() {
       clearInterval(this.timer);
