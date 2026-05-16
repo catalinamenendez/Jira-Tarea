@@ -35,3 +35,4 @@ export const songsList = [
   { id: 17, name: "Behind the Curtain", album: "The Life of a Showgirl" },
   { id: 18, name: "Velvet Lashes", album: "The Life of a Showgirl" }
 ];
+
