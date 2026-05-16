@@ -2,41 +2,38 @@ pipeline {
     agent any
     
     tools {
-        // Asegúrate de que en 'Administrar Jenkins -> Tools' el plugin de NodeJS se llama exactamente 'NodeJS'
         nodejs 'NodeJS' 
     }
     
     stages {
-        stage('Instalación de dependencias') { // Etapa 1
+        stage('Instalación de dependencias') { 
             steps {
                 bat 'npm install'
             }
         }
         
-        stage('Análisis de código (lint)') { // Etapa 2
+        stage('Análisis de código (lint)') { 
             steps {
-                // Usamos bat y adaptamos el escape de comandos para la consola de Windows
-                bat 'npm run lint -- --fix || echo "Incidencias de formato solventadas automáticamente"'
+                bat 'npm run lint -- --fix'
             }
         }
         
-        stage('Ejecución de tests') { // Etapa 3
+        stage('Ejecución de tests') { 
             steps {
-                bat 'npm run test:unit -- --watchAll=false || echo "Omitiendo errores de pruebas no críticas"'
+                bat 'npm run test:unit -- --watchAll=false'
             }
         }
         
-        stage('Build del proyecto') { // Etapa 4
+        stage('Build del proyecto') { 
             steps {
                 bat 'npm run build'
             }
         }
         
-        stage('Deploy automático en Firebase') { // Etapa 5
+        stage('Deploy automático en Firebase') { 
             steps {
-                // Vinculamos con tu ID real 'FIREBASE_TOKEN' que creamos en el almacén de credenciales
-                withCredentials([string(credentialsId: 'FIREBASE_TOKEN', variable: 'FIREBASE_TOKEN')]) {
-                    bat 'npx firebase-tools deploy --token "%FIREBASE_TOKEN%" --only hosting'
+                withCredentials([string(credentialsId: 'FIREBASE_TOKEN', variable: 'TOKEN_FIREBASE')]) {
+                    bat 'npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --only hosting'
                 }
             }
         }
