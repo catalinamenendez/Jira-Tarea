@@ -44,7 +44,7 @@ pipeline {
                     // Generamos un JSON plano con el campo "site" explícito para esquivar el Assertion error
                     bat '''
                         echo {"hosting": {"site": "jira-tarea", "public": "dist"}} > firebase.json
-                        npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --project jira-tarea-da76d --only hosting
+                        npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --project jira-tarea --only hosting
                     '''
                 }
             }
