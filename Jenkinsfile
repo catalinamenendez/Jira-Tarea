@@ -41,9 +41,9 @@ pipeline {
         stage('Deploy automático en Firebase') { 
             steps {
                 withCredentials([string(credentialsId: 'FIREBASE_TOKEN', variable: 'TOKEN_FIREBASE')]) {
-                    // Forzamos la creación de un firebase.json perfecto y bien cerrado desde Windows
+                    // Generamos un JSON plano con el campo "site" explícito para esquivar el Assertion error
                     bat '''
-                        echo {"hosting": {"public": "dist", "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]}} > firebase.json
+                        echo {"hosting": {"site": "jira-tarea-da76d", "public": "dist"}} > firebase.json
                         npx firebase-tools deploy --token "%TOKEN_FIREBASE%" --project jira-tarea-da76d --only hosting
                     '''
                 }
