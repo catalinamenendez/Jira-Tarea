@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "jira-tarea-da76d",
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -7,4 +8,3 @@
       "**/node_modules/**"
     ]
   }
-}
